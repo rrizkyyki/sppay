@@ -1,0 +1,71 @@
+@extends('layouts.base')
+@section('content')
+<div class="card shadow mb-4">
+    <div class="card-header py-3 justify-content-between d-flex">
+        <div class="left-navigation">
+            <h6 class="m-0 font-weight-bold text-primary mb-2">Data Kelas</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Total : {{$grades->count()}}</h6>
+        </div>
+        <div class="right-navigation">
+            <a href="" class="btn btn-sm btn-success font-weight-bold my-1 w-100"><i class="fa fa-download" aria-hidden="true"></i> Excel</a>
+            <a href="{{route('grade.create')}}" class="m-0 btn btn-sm btn-primary font-weight-bold w-100"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kelas</th>
+                        <th>Kompetensi Keahlian</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($grades as $key => $get)
+                        <tr>
+                            <td>{{$grades->firstItem() + $key}}</td>
+                            <td>{{$get->grade}}</td>
+                            <td>{{$get->major->major}}</td>
+                            <td>
+                                <a href="grade/edit/{{$get->id}}" class="btn btn-warning">Ubah</a>
+                                <button data-toggle="modal" data-target="#deleteModal{{$get->id}}" class="btn btn-danger my-1">Hapus</button>
+                            </td>
+                        </tr>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="deleteModal{{$get->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Hapus</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    Apakah anda yakin ingin menghapus kelas {{$get->grade}} jurusan {{$get->major->major}} ?
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <form action="grade/destroy/{{$get->id}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                </form>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center mt-4">
+                {{$grades->links()}}
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
