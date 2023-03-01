@@ -98,7 +98,7 @@
                 <select class="form-control @error('spp_id') is-invalid @enderror" name="spp_id">
                     <option value="">Pilih Spp</option>
                     @foreach ($spp as $get)
-                        <option value="{{$get->id}}">Rp. {{$get->amount}} Berakhir {{$get->end_date}}</option>
+                        <option value="{{$get->id}}">Rp. {{$get->amount}} Berakhir {{$get->end_period}}</option>
                     @endforeach
                 </select>
                 @error('spp_id')
@@ -107,6 +107,7 @@
                     </div>
                 @enderror
             </div>
+            <input type="hidden" name="payment_status" value="1">
             <div class="form-group">
                 <label for="image" class="form-label">Gambar</label>
                 <img class="img-priview img-fluid mb-3 col-sm-5">

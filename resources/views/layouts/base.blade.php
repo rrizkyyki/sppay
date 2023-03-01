@@ -81,7 +81,7 @@
                             <a class="collapse-item" href="{{route('major.index')}}">Kompetensi Keahlian</a>
                             <a class="collapse-item" href="{{route('spp.index')}}">Spp</a>
                             <a class="collapse-item" href="{{route('student.index')}}">Siswa</a>
-                            <a class="collapse-item" href="">Pembayaran</a>
+                            <a class="collapse-item" href="{{route('offlinePayment.index')}}">Pembayaran</a>
                         @elseif (auth()->user()->role == 'petugas')
                             <h6 class="collapse-header">Petugas</h6>
                             <a class="collapse-item" href="{{route('student.index')}}">Siswa</a>

@@ -121,6 +121,7 @@
                     </div>
                 @enderror
             </div>
+            <input type="hidden" name="payment_status" value="{{$student->payment_status}}">
             <div class="form-group">
                 <label for="image" class="form-label">Gambar</label>
                 @if ($student->image)

@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Payment extends Model
+class Online_payment extends Model
 {
     use HasFactory;
-    protected $table = 'payments';
-    protected $primarykey = 'id';
-    protected $guarded = ['id'];
 }

@@ -3,7 +3,7 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3 justify-content-between d-flex">
         <div class="left-navigation">
-            <h6 class="m-0 font-weight-bold text-primary mb-2">Data Kompetensi Keahlian</h6>
+            <h6 class="m-0 font-weight-bold text-primary mb-2">Data Siswa</h6>
             <h6 class="m-0 font-weight-bold text-primary">Total : {{$students->count()}}</h6>
         </div>
         <div class="right-navigation">

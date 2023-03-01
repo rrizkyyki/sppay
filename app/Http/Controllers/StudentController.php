@@ -54,6 +54,7 @@ class StudentController extends Controller
             'address' => 'required',
             'phone_number' => 'required|numeric',
             'spp_id' => 'required',
+            'payment_status' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
             'password' => 'required|min:8'
         ]);
@@ -81,6 +82,7 @@ class StudentController extends Controller
                 'address' => $request->address,
                 'phone_number' => $request->phone_number,
                 'spp_id' => $request->spp_id,
+                'payment_status' => $request->payment_status,
                 'image' => $image,
                 'password' => $request->password
             ]);
@@ -95,6 +97,7 @@ class StudentController extends Controller
                 'address' => $request->address,
                 'phone_number' => $request->phone_number,
                 'spp_id' => $request->spp_id,
+                'payment_status' => $request->payment_status,
                 'image' => $request->images,
                 'password' => $request->password
             ]);
@@ -154,6 +157,7 @@ class StudentController extends Controller
             'address' => 'required',
             'phone_number' => 'required|numeric',
             'spp_id' => 'required',
+            'payment_status' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
             'password' => 'required|min:8'
         ];

@@ -7,7 +7,8 @@ use App\Http\Controllers\MajorController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\SppController;
 use App\Http\Controllers\StudentController;
-use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\OfflinePaymentController;
+use App\Http\Controllers\OnlinePaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +71,17 @@ Route::controller(SppController::class)->prefix('spp')->name('spp.')->middleware
 Route::controller(StudentController::class)->prefix('student')->name('student.')->middleware('auth')->group(function () {
     Route::get('', 'index')->name('index');
     Route::get('create', 'create')->name('create');
+    Route::post('store', 'store')->name('store');
+    Route::get('edit/{id}', 'edit')->name('edit');
+    Route::put('edit/{id}', 'update')->name('update');
+    Route::delete('destroy/{id}', 'destroy')->name('destroy');
+});
+
+// OfflinePayment
+Route::controller(OfflinePaymentController::class)->prefix('offlinePayment')->name('offlinePayment.')->middleware('auth')->group(function () {
+    Route::get('', 'index')->name('index');
+    Route::get('create', 'create')->name('create');
+    Route::get('transaction/{id}', 'transaction')->name('transaction');
     Route::post('store', 'store')->name('store');
     Route::get('edit/{id}', 'edit')->name('edit');
     Route::put('edit/{id}', 'update')->name('update');
