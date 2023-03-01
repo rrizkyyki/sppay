@@ -17,8 +17,10 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('student_id')->constrained('students');
+            $table->string('order_id')->nullable();
             $table->date('pay_date');
             $table->char('amount');
+            $table->integer('gross_amount')->nullable();
             $table->timestamps();
         });
     }

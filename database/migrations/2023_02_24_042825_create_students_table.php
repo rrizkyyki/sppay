@@ -20,6 +20,7 @@ class CreateStudentsTable extends Migration
             $table->char('nisn', 20);
             $table->char('nis', 20);
             $table->foreignId('grade_id')->constrained('grades');
+            $table->foreignId('major_id')->constrained('majors');
             $table->longText('address');
             $table->char('phone_number', 20);
             $table->foreignId('spp_id')->constrained('spp');

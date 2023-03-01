@@ -38,8 +38,8 @@ class SppController extends Controller
     {
         // add rules
         $validatedData = $request->validate([
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'start_period' => 'required',
+            'end_period' => 'required',
             'amount' => 'required',
         ]);
 
@@ -90,8 +90,8 @@ class SppController extends Controller
 
         // add rules
         $validatedData = $request->validate([
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'start_period' => 'required',
+            'end_period' => 'required',
             'amount' => 'required',
         ]);
 

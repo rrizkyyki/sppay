@@ -16,7 +16,6 @@ class CreateGradesTable extends Migration
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
             $table->string('grade');
-            $table->foreignId('major_id')->constrained('majors');
             $table->timestamps();
         });
     }

@@ -77,13 +77,14 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         @if (auth()->user()->role == 'admin')
                             <h6 class="collapse-header">Admin</h6>
-                            <a class="collapse-item" href="{{route('major.index')}}">Kompetensi Keahlian</a>
                             <a class="collapse-item" href="{{route('grade.index')}}">Kelas</a>
-                            <a class="collapse-item" href="{{route('student.index')}}">Siswa</a>
+                            <a class="collapse-item" href="{{route('major.index')}}">Kompetensi Keahlian</a>
                             <a class="collapse-item" href="{{route('spp.index')}}">Spp</a>
+                            <a class="collapse-item" href="{{route('student.index')}}">Siswa</a>
                             <a class="collapse-item" href="">Pembayaran</a>
                         @elseif (auth()->user()->role == 'petugas')
                             <h6 class="collapse-header">Petugas</h6>
+                            <a class="collapse-item" href="{{route('student.index')}}">Siswa</a>
                             <a class="collapse-item" href="">Pembayaran</a>
                         @elseif (auth()->user()->role == 'guest')
                             <h6 class="collapse-header">Siswa</h6>

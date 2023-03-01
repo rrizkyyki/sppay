@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Student;
 use App\Models\Grade;
+use App\Models\Major;
 use App\Models\Spp;
 
 class StudentController extends Controller
@@ -28,9 +29,10 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $grades = Grade::with('major')->orderBy('grade', 'ASC')->get();
+        $grades = Grade::all();
+        $majors = Major::all();
         $spp = Spp::all();
-        return view('student.create', ['title' => 'Tambah Siswa'], compact(['grades', 'spp']));
+        return view('student.create', ['title' => 'Tambah Siswa'], compact(['grades', 'spp', 'majors']));
     }
 
     /**
@@ -48,6 +50,7 @@ class StudentController extends Controller
             'nisn' => 'required|unique:students,nisn',
             'nis' => 'required|unique:students,nis',
             'grade_id' => 'required',
+            'major_id' => 'required',
             'address' => 'required',
             'phone_number' => 'required|numeric',
             'spp_id' => 'required',
@@ -74,6 +77,7 @@ class StudentController extends Controller
                 'nisn' => $request->nisn,
                 'nis' => $request->nis,
                 'grade_id' => $request->grade_id,
+                'major_id' => $request->major_id,
                 'address' => $request->address,
                 'phone_number' => $request->phone_number,
                 'spp_id' => $request->spp_id,
@@ -87,6 +91,7 @@ class StudentController extends Controller
                 'nisn' => $request->nisn,
                 'nis' => $request->nis,
                 'grade_id' => $request->grade_id,
+                'major_id' => $request->major_id,
                 'address' => $request->address,
                 'phone_number' => $request->phone_number,
                 'spp_id' => $request->spp_id,
@@ -120,9 +125,10 @@ class StudentController extends Controller
     {
         // search id
         $student = Student::find($id);
-        $grades = Grade::with('major')->orderBy('grade', 'ASC')->get();
+        $grades = Grade::all();
+        $majors = Major::all();
         $spp = Spp::all();
-        return view('student.edit', ['title' => 'Edit Siswa'], compact(['grades', 'spp', 'student']));
+        return view('student.edit', ['title' => 'Edit Siswa'], compact(['grades', 'spp', 'student', 'majors']));
     }
 
     /**
@@ -144,6 +150,7 @@ class StudentController extends Controller
             'nisn' => 'required',
             'nis' => 'required',
             'grade_id' => 'required',
+            'major_id' => 'required',
             'address' => 'required',
             'phone_number' => 'required|numeric',
             'spp_id' => 'required',

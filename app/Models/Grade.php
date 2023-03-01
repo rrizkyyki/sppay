@@ -11,9 +11,4 @@ class Grade extends Model
     protected $table = 'grades';
     protected $primarykey = 'id';
     protected $guarded = ['id'];
-
-    public function major()
-    {
-        return $this->belongsTo(Major::class, 'major_id');
-    }
 }

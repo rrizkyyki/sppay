@@ -26,6 +26,11 @@ class Student extends Authenticatable
         return $this->belongsTo(Grade::class, 'grade_id');
     }
 
+    public function major()
+    {
+        return $this->belongsTo(Major::class, 'major_id');
+    }
+
     public function spp()
     {
         return $this->belongsTo(Spp::class, 'spp_id');

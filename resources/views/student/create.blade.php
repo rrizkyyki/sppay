@@ -52,10 +52,24 @@
                 <select class="form-control @error('grade_id') is-invalid @enderror" name="grade_id">
                     <option value="">Pilih Kelas</option>
                     @foreach ($grades as $get)
-                        <option value="{{$get->id}}">{{$get->grade}} {{$get->major->major}}</option>
+                        <option value="{{$get->id}}">{{$get->grade}}</option>
                     @endforeach
                 </select>
                 @error('grade_id')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="major_id" class="form-label">Kompetensi Keahlian</label>
+                <select class="form-control @error('major_id') is-invalid @enderror" name="major_id">
+                    <option value="">Pilih Kompetensi Keahlian</option>
+                    @foreach ($majors as $get)
+                        <option value="{{$get->id}}">{{$get->major}}</option>
+                    @endforeach
+                </select>
+                @error('major_id')
                     <div class="invalid-feedback">
                         {{$message}}
                     </div>

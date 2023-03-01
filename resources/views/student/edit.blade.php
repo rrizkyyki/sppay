@@ -55,13 +55,31 @@
                     <option value="">Pilih Kelas</option>
                     @foreach ($grades as $get)
                         @if (old('id', $get->id) == $student->grade_id)
-                            <option value="{{$get->id}}" selected>{{$get->grade}} - {{$get->major->major}}</option>
+                            <option value="{{$get->id}}" selected>{{$get->grade}}</option>
                         @else
-                            <option value="{{$get->id}}">{{$get->grade}} {{$get->major->major}}</option>
+                            <option value="{{$get->id}}">{{$get->grade}}</option>
                         @endif
                     @endforeach
                 </select>
                 @error('grade_id')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="major_id" class="form-label">Kompetensi Keahlian</label>
+                <select class="form-control @error('major_id') is-invalid @enderror" name="major_id">
+                    <option value="">Pilih Kelas</option>
+                    @foreach ($majors as $get)
+                        @if (old('id', $get->id) == $student->major_id)
+                            <option value="{{$get->id}}" selected>{{$get->major}}</option>
+                        @else
+                            <option value="{{$get->id}}">{{$get->major}}</option>
+                        @endif
+                    @endforeach
+                </select>
+                @error('major_id')
                     <div class="invalid-feedback">
                         {{$message}}
                     </div>

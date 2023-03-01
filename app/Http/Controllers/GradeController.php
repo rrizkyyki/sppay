@@ -26,8 +26,7 @@ class GradeController extends Controller
      */
     public function create()
     {
-        $majors = Major::all();
-        return view('grade.create', ['title' => 'Kelas'], compact(['majors']));
+        return view('grade.create', ['title' => 'Kelas']);
     }
 
     /**
@@ -40,8 +39,7 @@ class GradeController extends Controller
     {
         // add rules
         $validatedData = $request->validate([
-            'grade' => 'required',
-            'major_id' => 'required'
+            'grade' => 'required|unique:grades,grade'
         ]);
 
         // store data
@@ -73,11 +71,8 @@ class GradeController extends Controller
         // search id
         $grade = Grade::find($id);
 
-        // get major
-        $majors = Major::all();
-
         // return view with data
-        return view('grade.edit', ['title' => 'Edit Kelas'], compact(['grade', 'majors']));
+        return view('grade.edit', ['title' => 'Edit Kelas'], compact(['grade']));
     }
 
     /**
@@ -95,7 +90,6 @@ class GradeController extends Controller
         // add rules
         $validatedData = $request->validate([
             'grade' => 'required',
-            'major_id' => 'required'
         ]);
 
         // update data after validating

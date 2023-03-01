@@ -21,20 +21,6 @@
                 </div>
                 @enderror
             </div>
-            <div class="form-group">
-                <label for="major_id" class="form-label">Jurusan</label>
-                <select class="form-control @error('major_id') is-invalid @enderror" name="major_id">
-                    <option value="">Pilih Jurusan</option>
-                    @foreach ($majors as $get)
-                        <option value="{{$get->id}}">{{$get->major}}</option>
-                    @endforeach
-                </select>
-                @error('major_id')
-                    <div class="invalid-feedback">
-                        {{$message}}
-                    </div>
-                @enderror
-            </div>
             <button type="submit" class="btn btn-warning">Ubah</button>
         </form>
     </div>

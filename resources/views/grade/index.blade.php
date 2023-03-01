@@ -19,7 +19,6 @@
                     <tr>
                         <th>No</th>
                         <th>Kelas</th>
-                        <th>Kompetensi Keahlian</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -28,7 +27,6 @@
                         <tr>
                             <td>{{$grades->firstItem() + $key}}</td>
                             <td>{{$get->grade}}</td>
-                            <td>{{$get->major->major}}</td>
                             <td>
                                 <a href="grade/edit/{{$get->id}}" class="btn btn-warning">Ubah</a>
                                 <button data-toggle="modal" data-target="#deleteModal{{$get->id}}" class="btn btn-danger my-1">Hapus</button>
@@ -46,7 +44,7 @@
                                 </button>
                                 </div>
                                 <div class="modal-body">
-                                    Apakah anda yakin ingin menghapus kelas {{$get->grade}} jurusan {{$get->major->major}} ?
+                                    Apakah anda yakin ingin menghapus kelas {{$get->grade}} ?
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

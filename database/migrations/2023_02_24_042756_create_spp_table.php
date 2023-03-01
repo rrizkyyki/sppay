@@ -15,8 +15,8 @@ class CreateSppTable extends Migration
     {
         Schema::create('spp', function (Blueprint $table) {
             $table->id();
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->date('start_period');
+            $table->date('end_period');
             $table->char('amount');
             $table->timestamps();
         });

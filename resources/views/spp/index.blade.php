@@ -19,8 +19,8 @@
                     <tr>
                         <th>No</th>
                         <th>Nominal</th>
-                        <th>Berawal</th>
-                        <th>Berakhir</th>
+                        <th>Periode Awal</th>
+                        <th>Periode Akhir</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -29,8 +29,8 @@
                         <tr>
                             <td>{{$spp->firstItem() + $key}}</td>
                             <td>Rp. {{$get->amount}}</td>
-                            <td>{{$get->start_date}}</td>
-                            <td>{{$get->end_date}}</td>
+                            <td>{{$get->start_period}}</td>
+                            <td>{{$get->end_period}}</td>
                             <td>
                                 <a href="spp/edit/{{$get->id}}" class="btn btn-warning">Ubah</a>
                                 <button data-toggle="modal" data-target="#deleteModal{{$get->id}}" class="btn btn-danger my-1">Hapus</button>

@@ -13,18 +13,18 @@
             @csrf
             @method('put')
             <div class="form-group">
-                <label for="start_date" class="form-label">Tanggal Berawal</label>
-                <input type="date" name="start_date" class="form-control @error('start_date') is-invalid @enderror" autofocus required value="{{$spp->start_date}}">
-                @error('start_date')
+                <label for="start_period" class="form-label">Tanggal Berawal</label>
+                <input type="date" name="start_period" class="form-control @error('start_period') is-invalid @enderror" autofocus required value="{{$spp->start_period}}">
+                @error('start_period')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="end_date" class="form-label">Tanggal Berakhir</label>
-                <input type="date" name="end_date" class="form-control @error('end_date') is-invalid @enderror" autofocus required value="{{$spp->end_date}}">
-                @error('end_date')
+                <label for="end_period" class="form-label">Tanggal Berakhir</label>
+                <input type="date" name="end_period" class="form-control @error('end_period') is-invalid @enderror" autofocus required value="{{$spp->end_period}}">
+                @error('end_period')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
