@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Grade;
 use App\Models\Major;
+use App\Exports\GradeExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 
 class GradeController extends Controller
 {
@@ -17,6 +20,11 @@ class GradeController extends Controller
     {
         $grades = Grade::simplePaginate(5);
         return view('grade.index', ['title' => 'Kelas'], compact(['grades']));
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new GradeExport, 'kelas.xlsx');
     }
 
     /**

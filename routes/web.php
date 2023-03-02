@@ -45,6 +45,7 @@ Route::controller(MajorController::class)->prefix('major')->name('major.')->midd
     Route::get('edit/{id}', 'edit')->name('edit');
     Route::put('edit/{id}', 'update')->name('update');
     Route::delete('destroy/{id}', 'destroy')->name('destroy');
+    Route::get('export_excel', 'export_excel')->name('export_excel');
 });
 
 // Grade
@@ -55,6 +56,7 @@ Route::controller(GradeController::class)->prefix('grade')->name('grade.')->midd
     Route::get('edit/{id}', 'edit')->name('edit');
     Route::put('edit/{id}', 'update')->name('update');
     Route::delete('destroy/{id}', 'destroy')->name('destroy');
+    Route::get('export_excel', 'export_excel')->name('export_excel');
 });
 
 // Spp
@@ -65,6 +67,7 @@ Route::controller(SppController::class)->prefix('spp')->name('spp.')->middleware
     Route::get('edit/{id}', 'edit')->name('edit');
     Route::put('edit/{id}', 'update')->name('update');
     Route::delete('destroy/{id}', 'destroy')->name('destroy');
+    Route::get('export_excel', 'export_excel')->name('export_excel');
 });
 
 // Student
@@ -75,6 +78,7 @@ Route::controller(StudentController::class)->prefix('student')->name('student.')
     Route::get('edit/{id}', 'edit')->name('edit');
     Route::put('edit/{id}', 'update')->name('update');
     Route::delete('destroy/{id}', 'destroy')->name('destroy');
+    Route::get('export_excel', 'export_excel')->name('export_excel');
 });
 
 // OfflinePayment
@@ -86,4 +90,5 @@ Route::controller(OfflinePaymentController::class)->prefix('offlinePayment')->na
     Route::get('edit/{id}', 'edit')->name('edit');
     Route::put('edit/{id}', 'update')->name('update');
     Route::delete('destroy/{id}', 'destroy')->name('destroy');
+    Route::get('export_excel', 'export_excel')->name('export_excel');
 });

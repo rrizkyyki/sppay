@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Major;
+use App\Exports\MajorExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 
 class MajorController extends Controller
 {
@@ -16,6 +19,11 @@ class MajorController extends Controller
     {
         $majors = Major::simplePaginate(5);
         return view('major.index', ['title' => 'Jurusan'], compact(['majors']));
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new MajorExport, 'jurusan.xlsx');
     }
 
     /**

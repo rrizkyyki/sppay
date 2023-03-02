@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Major;
+use App\Models\User;
 use App\Models\Grade;
 use App\Models\Spp;
 use App\Models\Student;
@@ -15,6 +16,7 @@ class HomeController extends Controller
     public function index()
     {
         $majors = Major::all();
+        $users = User::all();
         $grades = Grade::all();
         $spp = Spp::all();
         $students = Student::all();
@@ -25,7 +27,9 @@ class HomeController extends Controller
             'grades',
             'spp',
             'students',
-            'offlinePayments'
+            'offlinePayments',
+            'onlinePayments',
+            'users'
         ]));
     }
 }

@@ -8,6 +8,9 @@ use App\Models\Student;
 use App\Models\Grade;
 use App\Models\Major;
 use App\Models\Spp;
+use App\Exports\StudentExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 
 class StudentController extends Controller
 {
@@ -20,6 +23,11 @@ class StudentController extends Controller
     {
         $students = Student::simplePaginate(5);
         return view('student.index', ['title' => 'Siswa'], compact(['students']));
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new StudentExport, 'siswa.xlsx');
     }
 
     /**

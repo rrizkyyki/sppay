@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Spp;
+use App\Exports\SppExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 
 class SppController extends Controller
 {
@@ -16,6 +19,11 @@ class SppController extends Controller
     {
         $spp = Spp::simplePaginate(5);
         return view('spp.index', ['title' => 'Spp'], compact(['spp']));
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new SppExport, 'spp.xlsx');
     }
 
     /**

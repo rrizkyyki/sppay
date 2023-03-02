@@ -17,6 +17,7 @@ class CreateOnlinePaymentsTable extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained('students');
             $table->date('pay_date');
+            $table->string('snap_token')->nullable();
             $table->integer('gross_amount')->nullable();
             $table->timestamps();
         });

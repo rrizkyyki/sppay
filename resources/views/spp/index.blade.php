@@ -7,7 +7,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Total : {{$spp->count()}}</h6>
         </div>
         <div class="right-navigation">
-            <a href="" class="btn btn-sm btn-success font-weight-bold my-1 w-100"><i class="fa fa-download" aria-hidden="true"></i> Excel</a>
+            <a href="{{route('spp.export_excel')}}" class="btn btn-sm btn-success font-weight-bold my-1 w-100"><i class="fa fa-download" aria-hidden="true"></i> Excel</a>
             <a href="{{route('spp.create')}}" class="m-0 btn btn-sm btn-primary font-weight-bold w-100"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</a>
         </div>
     </div>
