@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MajorController;
@@ -21,9 +22,8 @@ use App\Http\Controllers\OnlinePaymentController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Landing Page
+Route::get('/', [LandingPageController::class, 'index']);
 
 // Login
 Route::controller(LoginController::class)->group(function () {
