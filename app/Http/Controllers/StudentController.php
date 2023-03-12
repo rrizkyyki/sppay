@@ -21,7 +21,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::simplePaginate(5);
+        $students = Student::simplePaginate(10);
         return view('student.index', ['title' => 'Siswa'], compact(['students']));
     }
 
@@ -106,7 +106,7 @@ class StudentController extends Controller
                 'phone_number' => $request->phone_number,
                 'spp_id' => $request->spp_id,
                 'payment_status' => $request->payment_status,
-                'image' => $request->images,
+                'image' => $request->image,
                 'password' => $request->password
             ]);
         }

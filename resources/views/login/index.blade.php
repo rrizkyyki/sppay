@@ -20,9 +20,26 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('sbadmin2/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+    {{-- custom css --}}
+    <style>
+        body {
+            background-color: #37517E;
+        }
+
+        .btn {
+            background-color: #37517E;
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: #2E59D9;
+            color: white;
+        }
+    </style>
+
 </head>
 
-<body class="bg-gradient-primary">
+<body>
 
     <div class="container">
 
@@ -85,7 +102,7 @@
                                                 <label class="custom-control-label" for="customCheck">Lihat Kata Sandi</label>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-user btn-block">
                                             Masuk
                                         </button>
                                     </form>

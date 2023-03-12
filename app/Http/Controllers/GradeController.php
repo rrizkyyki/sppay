@@ -18,7 +18,7 @@ class GradeController extends Controller
      */
     public function index()
     {
-        $grades = Grade::simplePaginate(5);
+        $grades = Grade::simplePaginate(10);
         return view('grade.index', ['title' => 'Kelas'], compact(['grades']));
     }
 

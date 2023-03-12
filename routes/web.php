@@ -8,6 +8,7 @@ use App\Http\Controllers\MajorController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\SppController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\OfflinePaymentController;
 use App\Http\Controllers\OnlinePaymentController;
 
@@ -91,4 +92,16 @@ Route::controller(OfflinePaymentController::class)->prefix('offlinePayment')->na
     Route::put('edit/{id}', 'update')->name('update');
     Route::delete('destroy/{id}', 'destroy')->name('destroy');
     Route::get('export_excel', 'export_excel')->name('export_excel');
+});
+
+// Operator (users)
+Route::controller(OperatorController::class)->prefix('operator')->name('operator.')->middleware('auth')->group(function () {
+    Route::get('', 'index')->name('index');
+    Route::get('create', 'create')->name('create');
+    Route::post('store', 'store')->name('store');
+    Route::get('edit/{id}', 'edit')->name('edit');
+    Route::put('edit/{id}', 'update')->name('update');
+    Route::delete('destroy/{id}', 'destroy')->name('destroy');
+    Route::get('export_excel', 'export_excel')->name('export_excel');
+    Route::get('export_excel_view', 'exportExcelView')->name('export_excel_view');
 });

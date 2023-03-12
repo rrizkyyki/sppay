@@ -11,6 +11,10 @@
 
     <title>SPPAY | {{$title}}</title>
 
+    <!-- Favicons -->
+    <link href="{{asset('sbadmin2/img/sppay-icon.png')}}" rel="icon">
+    <link href="{{asset('sbadmin2/img/sppay-icon.png')}}" rel="apple-touch-icon">
+
     <!-- Custom fonts for this template-->
     <link href="{{asset('sbadmin2/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
@@ -23,9 +27,15 @@
     <!-- Custom styles for paginate -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    @stack('head')
+
+    {{-- global base style --}}
     <style>
         td {
             text-transform: capitalize;
+        }
+        .text-primary {
+            color: #37517E !important;
         }
     </style>
 
@@ -37,7 +47,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion toggled" id="accordionSidebar" style="background-color: #37517E;">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
@@ -97,7 +107,7 @@
             <!-- Nav Item - operator -->
             @if (auth()->user()->role == 'admin')
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="{{route('operator.index')}}">
                         <i class="fas fa-fw fa-users"></i>
                         <span>Petugas</span></a>
                 </li>

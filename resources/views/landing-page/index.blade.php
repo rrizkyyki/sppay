@@ -561,7 +561,7 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
-            <h2>Harga</h2>
+            <h2>Paket Dan Harga</h2>
             <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
             </div>
 
@@ -569,14 +569,14 @@
 
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="box">
-                <h3>Free Plan</h3>
-                <h4><sup>$</sup>0<span>per month</span></h4>
+                <h3>Demo</h3>
+                <h4><sup>Rp. </sup>0,00<span>per bulan</span></h4>
                 <ul>
-                    <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                    <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                    <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                    <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                    <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+                    <li><i class="bx bx-check"></i> Gratis 5 akun selama 7 hari</li>
+                    <li class="na"><i class="bx bx-x"></i> <span>Mendapat Semua Fitur</span></li>
+                    <li class="na"><i class="bx bx-x"></i> <span>Gratis Perubahan Minor</span></li>
+                    <li class="na"><i class="bx bx-x"></i> <span>Gratis hosting dan domain</span></li>
+                    <li class="na"><i class="bx bx-x"></i> <span>Gratis Maintenance Selama 3 Bulan</span></li>
                 </ul>
                 <a href="#" class="buy-btn">Get Started</a>
                 </div>
@@ -584,14 +584,14 @@
 
             <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
                 <div class="box featured">
-                <h3>Business Plan</h3>
-                <h4><sup>$</sup>29<span>per month</span></h4>
+                <h3>Pro</h3>
+                <h4><sup>Rp. </sup>300.000,00<span>per bulan</span></h4>
                 <ul>
-                    <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                    <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                    <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                    <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                    <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+                    <li><i class="bx bx-check"></i> Unlimited User</li>
+                    <li><i class="bx bx-check"></i> Mendapat Semua Fitur</li>
+                    <li class="na"><i class="bx bx-x"></i> <span>Gratis Perubahan Minor &#40;5x&#41;</span></li>
+                    <li class="na"><i class="bx bx-x"></i> <span>Gratis hosting dan domain</span></li>
+                    <li class="na"><i class="bx bx-x"></i> <span>Gratis Maintenance Selama 3 Bulan</span></li>
                 </ul>
                 <a href="#" class="buy-btn">Get Started</a>
                 </div>
@@ -599,14 +599,14 @@
 
             <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
                 <div class="box">
-                <h3>Developer Plan</h3>
-                <h4><sup>$</sup>49<span>per month</span></h4>
+                <h3>Premium</h3>
+                <h4><sup>Rp. </sup>5 Juta<span>permanen</span></h5>
                 <ul>
-                    <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-                    <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-                    <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-                    <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-                    <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+                    <li><i class="bx bx-check"></i> Unlimited User</li>
+                    <li><i class="bx bx-check"></i> Mendapat Semua Fitur</li>
+                    <li><i class="bx bx-check"></i> Gratis Perubahan Minor &#40;5x&#41;</li>
+                    <li><i class="bx bx-check"></i> Gratis hosting dan domain</li>
+                    <li><i class="bx bx-check"></i> Gratis Maintenance Selama 3 Bulan</li>
                 </ul>
                 <a href="#" class="buy-btn">Get Started</a>
                 </div>

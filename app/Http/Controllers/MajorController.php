@@ -17,7 +17,7 @@ class MajorController extends Controller
      */
     public function index()
     {
-        $majors = Major::simplePaginate(5);
+        $majors = Major::simplePaginate(10);
         return view('major.index', ['title' => 'Jurusan'], compact(['majors']));
     }
 

@@ -17,7 +17,7 @@ class SppController extends Controller
      */
     public function index()
     {
-        $spp = Spp::simplePaginate(5);
+        $spp = Spp::simplePaginate(10);
         return view('spp.index', ['title' => 'Spp'], compact(['spp']));
     }
 

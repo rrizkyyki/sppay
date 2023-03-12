@@ -16,7 +16,7 @@ class OfflinePaymentController extends Controller
      */
     public function index()
     {
-        $offlinePayments = Offline_payment::simplePaginate(5);
+        $offlinePayments = Offline_payment::simplePaginate(10);
         return view('payment.offline.index', ['title' => 'Pembayaran Offline'], compact(['offlinePayments']));
     }
 
