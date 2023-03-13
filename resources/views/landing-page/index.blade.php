@@ -578,7 +578,7 @@
                     <li class="na"><i class="bx bx-x"></i> <span>Gratis hosting dan domain</span></li>
                     <li class="na"><i class="bx bx-x"></i> <span>Gratis Maintenance Selama 3 Bulan</span></li>
                 </ul>
-                <a href="#" class="buy-btn">Get Started</a>
+                <a href="#" class="buy-btn">Beli Paket</a>
                 </div>
             </div>
 
@@ -593,7 +593,7 @@
                     <li class="na"><i class="bx bx-x"></i> <span>Gratis hosting dan domain</span></li>
                     <li class="na"><i class="bx bx-x"></i> <span>Gratis Maintenance Selama 3 Bulan</span></li>
                 </ul>
-                <a href="#" class="buy-btn">Get Started</a>
+                <a href="#" class="buy-btn">Beli Paket</a>
                 </div>
             </div>
 
@@ -608,7 +608,7 @@
                     <li><i class="bx bx-check"></i> Gratis hosting dan domain</li>
                     <li><i class="bx bx-check"></i> Gratis Maintenance Selama 3 Bulan</li>
                 </ul>
-                <a href="#" class="buy-btn">Get Started</a>
+                <a href="#" class="buy-btn">Beli Paket</a>
                 </div>
             </div>
 
