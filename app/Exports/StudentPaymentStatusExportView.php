@@ -11,6 +11,6 @@ class StudentPaymentStatusExportView implements FromView
     public function view(): View
     {
         $studentPaymentStatus = Student::all();
-        return view('payment.offline.student-table-status', ['studentPaymentStatus' => $studentPaymentStatus]);
+        return view('payment.offline.student_table_status', ['studentPaymentStatus' => $studentPaymentStatus]);
     }
 }

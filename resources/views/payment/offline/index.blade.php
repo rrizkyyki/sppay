@@ -65,6 +65,7 @@
                         <th>Spp</th>
                         <th>Jumlah Bayar</th>
                         <th>Status</th>
+                        <th>Bukti</th>
                         {{-- <th>Aksi</th> --}}
                     </tr>
                 </thead>
@@ -76,13 +77,16 @@
                             <td>{{$get->student->nisn}}</td>
                             <td>{{$get->student->name}}</td>
                             <td>{{$get->pay_date}}</td>
-                            <td>{{$get->student->spp->amount}}</td>
-                            <td>{{$get->amount}}</td>
+                            <td>Rp. {{$get->student->spp->amount}}</td>
+                            <td>Rp. {{$get->amount}}</td>
                             @if ($get->student->payment_status == 2)
                                 <td><p class="badge badge-success" style="font-size: 15px;">Lunas</p></td>
                             @else
                                 <td><p class="badge badge-danger" style="font-size: 15px;">Belum Lunas</p></td>
                             @endif
+                            <td>
+                                <a href="offlinePayment/invoice/{{$get->id}}" class="btn btn-info"><i class="fa fa-download" aria-hidden="true"></i> PDF</a>
+                            </td>
                             {{-- <td>
                                 <a href="major/edit/{{$get->id}}" class="btn btn-warning">Ubah</a>
                                 <button data-toggle="modal" data-target="#deleteModal{{$get->id}}" class="btn btn-danger my-1">Hapus</button>

@@ -9,6 +9,8 @@ use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\StudentPaymentStatusExportView;
 use App\Exports\OfflinePaymentExportView;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 
 class OfflinePaymentController extends Controller
 {
@@ -36,9 +38,20 @@ class OfflinePaymentController extends Controller
         return Excel::download(new StudentPaymentStatusExportView, 'status-pembayaran-murid.xlsx');
     }
 
+    // export excel using view
     public function exportExcelView()
     {
         return Excel::download(new OfflinePaymentExportView, 'pembayaran-offline.xlsx');
+    }
+
+    // export pdf
+    public function offlinePaymentInvoice($id)
+    {
+        $offlinePayment = Offline_payment::find($id);
+        $student = Student::find($id);
+        $invoice_date = date('j_F_Y'); 
+        $pdf = Pdf::loadView('payment.offline.invoice', ['offlinePayment' => $offlinePayment, 'student' => $student]);
+        return $pdf->stream('invoice_'.config('app.name').'_'.$invoice_date.'.pdf');
     }
 
     /**
@@ -64,7 +77,7 @@ class OfflinePaymentController extends Controller
 
     public function transaction($id)
     {
-        $user = User::find($id);
+        $user = Auth::user();
         $student = Student::find($id);
         return view('payment.offline.transaction', ['title' => 'Transaksi'], compact(['user', 'student']));
     }

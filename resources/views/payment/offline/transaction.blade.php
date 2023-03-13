@@ -40,6 +40,10 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label class="form-label">SPP</label>
+                <input type="text" class="form-control"  value="Rp. {{$student->spp->amount}}" readonly required>
+            </div>
+            <div class="form-group">
                 <label for="pay_date" class="form-label">Tanggal</label>
                 <input type="date" name="pay_date" class="form-control @error('pay_date') is-invalid @enderror" required>
                 @error('pay_date')

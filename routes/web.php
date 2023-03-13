@@ -98,6 +98,7 @@ Route::controller(OfflinePaymentController::class)->prefix('offlinePayment')->na
     Route::get('export_excel', 'export_excel')->name('export_excel');
     Route::get('export_student_status_view', 'exportStudentStatusExcelView')->name('export_student_status_view');
     Route::get('export_excel_view', 'exportExcelView')->name('export_excel_view');
+    Route::get('invoice/{id}', 'offlinePaymentInvoice')->name('invoice');
 });
 
 // Operator (users)
