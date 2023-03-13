@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminMiddleware
 {
@@ -16,11 +17,16 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        if (Auth::guard('student')) {
+            return redirect('/home')->with('alert', 'Akses Dilarang!');
+        }
+
         if (auth()->user()->role == 'admin') {
             return $next($request);
         } else {
-            return redirect('/dashboard')->with('alert', 'Access Denied !');
+            return redirect('/home')->with('alert', 'Akses Dilarang!');
         }
+
         return $next($request);
     }
 }

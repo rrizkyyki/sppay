@@ -19,7 +19,7 @@ class OperatorMiddleware
         if (auth()->user()->role == 'operator') {
             return $next($request);
         } else {
-            return redirect('/dashboard')->with('alert', 'Access Denied !');
+            return redirect('/dashboard')->with('alert', 'Akses Dilarang!');
         }
         return $next($request);
     }

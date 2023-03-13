@@ -39,7 +39,7 @@ Route::controller(HomeController::class)->middleware(['auth:web,student'])->grou
 });
 
 // Grade
-Route::controller(GradeController::class)->prefix('grade')->name('grade.')->middleware('auth')->group(function () {
+Route::controller(GradeController::class)->prefix('grade')->name('grade.')->middleware('isAdmin')->group(function () {
     Route::get('', 'index')->name('index');
     Route::get('create', 'create')->name('create');
     Route::post('store', 'store')->name('store');
@@ -51,7 +51,7 @@ Route::controller(GradeController::class)->prefix('grade')->name('grade.')->midd
 });
 
 // Major
-Route::controller(MajorController::class)->prefix('major')->name('major.')->middleware('auth')->group(function () {
+Route::controller(MajorController::class)->prefix('major')->name('major.')->middleware('isAdmin')->group(function () {
     Route::get('', 'index')->name('index');
     Route::get('create', 'create')->name('create');
     Route::post('store', 'store')->name('store');
@@ -63,7 +63,7 @@ Route::controller(MajorController::class)->prefix('major')->name('major.')->midd
 });
 
 // Spp
-Route::controller(SppController::class)->prefix('spp')->name('spp.')->middleware('auth')->group(function () {
+Route::controller(SppController::class)->prefix('spp')->name('spp.')->middleware('isAdmin')->group(function () {
     Route::get('', 'index')->name('index');
     Route::get('create', 'create')->name('create');
     Route::post('store', 'store')->name('store');
