@@ -16,11 +16,16 @@ class OperatorMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        if (Auth::guard('student')) {
+            return redirect('/home')->with('alert', 'Akses Dilarang!');
+        }
+
         if (auth()->user()->role == 'operator') {
             return $next($request);
         } else {
             return redirect('/dashboard')->with('alert', 'Akses Dilarang!');
         }
+
         return $next($request);
     }
 }

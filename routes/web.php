@@ -102,7 +102,7 @@ Route::controller(OfflinePaymentController::class)->prefix('offlinePayment')->na
 });
 
 // Operator (users)
-Route::controller(OperatorController::class)->prefix('operator')->name('operator.')->middleware('auth')->group(function () {
+Route::controller(OperatorController::class)->prefix('operator')->name('operator.')->middleware('isAdmin')->group(function () {
     Route::get('', 'index')->name('index');
     Route::get('create', 'create')->name('create');
     Route::post('store', 'store')->name('store');
