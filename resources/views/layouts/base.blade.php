@@ -99,6 +99,9 @@
                         @elseif (auth()->user()->role == 'guest')
                             <h6 class="collapse-header">Murid</h6>
                             <a class="collapse-item" href="">No Access</a>
+                        @elseif (Auth::guard('student'))
+                            <h6 class="collapse-header">Murid</h6>
+                            <a class="collapse-item" href="">No Access</a>
                         @endif
                     </div>
                 </div>
