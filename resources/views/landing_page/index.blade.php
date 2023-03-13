@@ -348,14 +348,14 @@
 
             <div class="section-title">
             <h2>Portfolio</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <p>Berikut tangkapan layar dari aplikasi SPPAY. Berbagai fitur dikelompokan sesuai dengan hak akses nya masing - masing. Terdapat admin, petugas dan user atau murid. SPPAY sudah responsive sehingga nyaman digunakan di ponsel anda</p>
             </div>
 
             <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-card">Card</li>
-            <li data-filter=".filter-web">Web</li>
+            <li data-filter="*" class="filter-active">Semua</li>
+            <li data-filter=".filter-app">Admin</li>
+            <li data-filter=".filter-card">Petugas</li>
+            <li data-filter=".filter-web">User</li>
             </ul>
 
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
@@ -623,30 +623,30 @@
 
             <div class="section-title">
             <h2>Pertanyaan yang sering di ajukan</h2>
-            <p>Berikut beberapa pertanyaan yang sering ditanyakan oleh client kami, jika pertanyaan anda tidak termasuk disini jangan ragu untuk menghubungi customer service kami.</p>
+            <p>Berikut beberapa pertanyaan yang sering ditanyakan oleh pelanggan kami, jika pertanyaan anda tidak termasuk disini jangan ragu untuk menghubungi customer service kami.</p>
             </div>
 
             <div class="faq-list">
             <ul>
                 <li data-aos="fade-up" data-aos-delay="100">
-                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Apa datanya bisa di download ke excel? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                 <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
                     <p>
-                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                    Ya SPPAY memiliki fitur download ke excel untuk mempermudah pendataan siswa, spp dan pembayaran
                     </p>
                 </div>
                 </li>
 
                 <li data-aos="fade-up" data-aos-delay="200">
-                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Dalam transaksi pembayaran apakah akan mendapat bukti? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                 <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                     <p>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                    Ya SPPAY memiliki fitur download bukti pembayaran berupa pdf yang dapat di simpan sehingga tidak ada data pembayaran yang hilang
                     </p>
                 </div>
                 </li>
 
-                <li data-aos="fade-up" data-aos-delay="300">
+                {{-- <li data-aos="fade-up" data-aos-delay="300">
                 <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                 <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                     <p>
@@ -671,7 +671,7 @@
                     Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
                     </p>
                 </div>
-                </li>
+                </li> --}}
 
             </ul>
             </div>
