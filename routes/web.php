@@ -96,6 +96,8 @@ Route::controller(OfflinePaymentController::class)->prefix('offlinePayment')->na
     Route::put('edit/{id}', 'update')->name('update');
     Route::delete('destroy/{id}', 'destroy')->name('destroy');
     Route::get('export_excel', 'export_excel')->name('export_excel');
+    Route::get('export_student_status_view', 'exportStudentStatusExcelView')->name('export_student_status_view');
+    Route::get('export_excel_view', 'exportExcelView')->name('export_excel_view');
 });
 
 // Operator (users)

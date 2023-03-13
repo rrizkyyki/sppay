@@ -1,13 +1,54 @@
 @extends('layouts.base')
+@push('search-bar')
+<!-- Topbar Search -->
+<form action="/offlinePayment/create" method="GET"
+    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <div class="input-group">
+        <input type="search" name="search" class="form-control bg-light border-0 small" placeholder="Cari murid..."
+            aria-label="Search" aria-describedby="basic-addon2" value="{{request('search')}}">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
+</form>
+@endpush
+@push('search-bar-responsive')
+    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+    <li class="nav-item dropdown no-arrow d-sm-none">
+        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-search fa-fw"></i>
+        </a>
+        <!-- Dropdown - Messages -->
+        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+            aria-labelledby="searchDropdown">
+            <form action="/offlinePayment/create" method="GET" class="form-inline mr-auto w-100 navbar-search">
+                <div class="input-group">
+                    <input type="search" name="search" class="form-control bg-light border-0 small"
+                        placeholder="Cari murid..." aria-label="Search"
+                        aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </li>
+@endpush
 @section('content')
 <div class="card shadow mb-4">
     <div class="card-header py-3 justify-content-between d-flex">
         <div class="left-navigation">
-            <h6 class="m-0 font-weight-bold text-primary mb-2">Data Siswa</h6>
+            <h6 class="m-0 font-weight-bold text-primary mb-2">Data Status Murid</h6>
             <h6 class="m-0 font-weight-bold text-primary">Total : {{$students->count()}}</h6>
         </div>
         <div class="right-navigation">
-            <a href="" class="btn btn-sm btn-success font-weight-bold my-1 w-100"><i class="fa fa-download" aria-hidden="true"></i> Excel</a>
+            <a href="{{route('offlinePayment.export_student_status_view')}}" class="btn btn-sm btn-success font-weight-bold my-1 w-100"><i class="fa fa-download" aria-hidden="true"></i> Excel</a>
+            <a href="{{route('offlinePayment.index')}}" class="btn btn-sm btn-primary w-100">Kembali</a>
         </div>
     </div>
 

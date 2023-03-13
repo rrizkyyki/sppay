@@ -4,7 +4,7 @@
     <div class="card-header py-3 justify-content-between d-flex">
         <h6 class="m-0 font-weight-bold text-primary">Transaksi</h6>
         <div class="right-navigation">
-            <a href="{{route('offlinePayment.index')}}" class="btn btn-sm btn-primary">Kembali</a>
+            <a href="{{route('offlinePayment.create')}}" class="btn btn-sm btn-primary">Kembali</a>
         </div>
     </div>
 
@@ -13,7 +13,8 @@
             @csrf
             <div class="form-group">
                 <label for="user_id" class="form-label">Petugas</label>
-                <input type="text" name="user_id" class="form-control @error('user_id') is-invalid @enderror" value="{{Auth::user()->id}}" readonly required>
+                <input type="hidden" name="user_id" class="form-control @error('user_id') is-invalid @enderror" value="{{Auth::user()->id}}" readonly required>
+                <input type="text" class="form-control @error('user_id') is-invalid @enderror" value="{{$user->name}}" readonly required>
                 @error('user_id')
                 <div class="invalid-feedback">
                     {{$message}}
@@ -21,8 +22,17 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="student_id" class="form-label">Siswa</label>
-                <input type="text" name="student_id" class="form-control @error('student_id') is-invalid @enderror"  value="{{$student->id}}" readonly required>
+                <label class="form-label">NISN</label>
+                <input type="text" class="form-control"  value="{{$student->nisn}}" readonly required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">NISN</label>
+                <input type="text" class="form-control"  value="{{$student->nis}}" readonly required>
+            </div>
+            <div class="form-group">
+                <label for="student_id" class="form-label">Murid</label>
+                <input type="hidden" name="student_id" class="form-control @error('student_id') is-invalid @enderror"  value="{{$student->id}}" readonly required>
+                <input type="text" class="form-control @error('student_id') is-invalid @enderror"  value="{{$student->name}}" readonly required>
                 @error('student_id')
                 <div class="invalid-feedback">
                     {{$message}}

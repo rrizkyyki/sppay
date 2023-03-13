@@ -107,11 +107,11 @@
                 <label for="spp_id" class="form-label">Spp</label>
                 <select class="form-control @error('spp_id') is-invalid @enderror" name="spp_id">
                     @foreach ($spp as $get)
-                        <option value="{{$get->id}}">Rp. {{$get->amount}} Berakhir {{$get->end_date}}</option>
+                        {{-- <option value="{{$get->id}}">Rp. {{$get->amount}} Berakhir {{$get->end_date}}</option> --}}
                         @if (old('id', $get->id) == $student->spp_id)
-                            <option value="{{$get->id}}" selected>Rp. {{$get->amount}} Berakhir {{$get->end_date}}</option>
+                            <option value="{{$get->id}}" selected>Rp. {{$get->amount}} Berakhir {{$get->end_period}}</option>
                         @else
-                            <option value="{{$get->id}}">Rp. {{$get->amount}} Berakhir {{$get->end_date}}</option>
+                            <option value="{{$get->id}}">Rp. {{$get->amount}} Berakhir {{$get->end_period}}</option>
                         @endif
                     @endforeach
                 </select>

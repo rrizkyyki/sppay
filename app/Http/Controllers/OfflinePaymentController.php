@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Offline_payment;
 use App\Models\Student;
 use App\Models\User;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\StudentPaymentStatusExportView;
+use App\Exports\OfflinePaymentExportView;
 
 class OfflinePaymentController extends Controller
 {
@@ -14,10 +17,28 @@ class OfflinePaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $offlinePayments = Offline_payment::simplePaginate(10);
+        if ($request->has('search')) {
+            $offlinePayments = Offline_payment::where('amount', 'LIKE', '%' .$request->search. '%')
+                                                    ->orWhere('pay_date', 'LIKE', '%' .$request->search. '%')
+                                                    ->simplePaginate(10);
+        } else {
+            $offlinePayments = Offline_payment::simplePaginate(10);
+        }
+
         return view('payment.offline.index', ['title' => 'Pembayaran Offline'], compact(['offlinePayments']));
+    }
+
+    // export excel using view
+    public function exportStudentStatusExcelView()
+    {
+        return Excel::download(new StudentPaymentStatusExportView, 'status-pembayaran-murid.xlsx');
+    }
+
+    public function exportExcelView()
+    {
+        return Excel::download(new OfflinePaymentExportView, 'pembayaran-offline.xlsx');
     }
 
     /**
@@ -25,15 +46,25 @@ class OfflinePaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $students = Student::simplePaginate(5);
+        if ($request->has('search')) {
+            $students = Student::where('name', 'LIKE', '%' .$request->search. '%')
+                                    ->orWhere('nisn', 'LIKE', '%' .$request->search. '%')
+                                    ->orWhere('nis', 'LIKE', '%' .$request->search. '%')
+                                    ->orWhere('address', 'LIKE', '%' .$request->search. '%')
+                                    ->orWhere('phone_number', 'LIKE', '%' .$request->search. '%')
+                                    ->simplePaginate(10);
+        } else {
+            $students = Student::simplePaginate(10);
+        }
+
         return view('payment.offline.create', ['title' => 'Tambah Pembayaran'], compact(['students']));
     }
 
     public function transaction($id)
     {
-        $user = User::all();
+        $user = User::find($id);
         $student = Student::find($id);
         return view('payment.offline.transaction', ['title' => 'Transaksi'], compact(['user', 'student']));
     }
@@ -48,7 +79,7 @@ class OfflinePaymentController extends Controller
     {
         $offlinePayments = $request->except('_token', '_method');
         Offline_payment::create($offlinePayments);
-        return redirect('/offlinePayment/create')->with('success', 'Pembayaran berhasil!, Silahkan Konfirmasi Transaksi.');
+        return redirect('/offlinePayment/create')->with('success', 'Pembayaran berhasil! Silahkan Konfirmasi Transaksi.');
     }
 
     /**
