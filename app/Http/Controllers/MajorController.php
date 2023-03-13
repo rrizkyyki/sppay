@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Major;
 use App\Exports\MajorExport;
+use App\Exports\MajorExportView;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 
@@ -15,15 +16,28 @@ class MajorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $majors = Major::simplePaginate(10);
+        // search
+        if ($request->has('search')) {
+            $majors = Major::where('major', 'LIKE', '%' .$request->search. '%')->simplePaginate(10);
+        } else {
+            $majors = Major::simplePaginate(10);
+        }
+
         return view('major.index', ['title' => 'Jurusan'], compact(['majors']));
     }
 
+    // export excel using model
     public function export_excel()
     {
         return Excel::download(new MajorExport, 'jurusan.xlsx');
+    }
+
+    // export excel using view
+    public function exportExcelView()
+    {
+        return Excel::download(new MajorExportView, 'jurusan.xlsx');
     }
 
     /**

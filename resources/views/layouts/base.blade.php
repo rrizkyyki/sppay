@@ -90,14 +90,14 @@
                             <a class="collapse-item" href="{{route('grade.index')}}">Kelas</a>
                             <a class="collapse-item" href="{{route('major.index')}}">Kompetensi Keahlian</a>
                             <a class="collapse-item" href="{{route('spp.index')}}">Spp</a>
-                            <a class="collapse-item" href="{{route('student.index')}}">Siswa</a>
+                            <a class="collapse-item" href="{{route('student.index')}}">Murid</a>
                             <a class="collapse-item" href="{{route('offlinePayment.index')}}">Pembayaran</a>
                         @elseif (auth()->user()->role == 'operator')
                             <h6 class="collapse-header">Petugas</h6>
-                            <a class="collapse-item" href="{{route('student.index')}}">Siswa</a>
+                            <a class="collapse-item" href="{{route('student.index')}}">Murid</a>
                             <a class="collapse-item" href="{{route('offlinePayment.index')}}">Pembayaran</a>
                         @elseif (auth()->user()->role == 'guest')
-                            <h6 class="collapse-header">Siswa</h6>
+                            <h6 class="collapse-header">Murid</h6>
                             <a class="collapse-item" href="">No Access</a>
                         @endif
                     </div>
@@ -138,8 +138,12 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+                    @stack('search-bar')
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                        @stack('search-bar-responsive')
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">

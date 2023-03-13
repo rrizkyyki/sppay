@@ -38,17 +38,6 @@ Route::controller(HomeController::class)->middleware(['auth:web,student'])->grou
     Route::get('/home', 'index')->name('home.index');
 });
 
-// Major
-Route::controller(MajorController::class)->prefix('major')->name('major.')->middleware('auth')->group(function () {
-    Route::get('', 'index')->name('index');
-    Route::get('create', 'create')->name('create');
-    Route::post('store', 'store')->name('store');
-    Route::get('edit/{id}', 'edit')->name('edit');
-    Route::put('edit/{id}', 'update')->name('update');
-    Route::delete('destroy/{id}', 'destroy')->name('destroy');
-    Route::get('export_excel', 'export_excel')->name('export_excel');
-});
-
 // Grade
 Route::controller(GradeController::class)->prefix('grade')->name('grade.')->middleware('auth')->group(function () {
     Route::get('', 'index')->name('index');
@@ -58,6 +47,19 @@ Route::controller(GradeController::class)->prefix('grade')->name('grade.')->midd
     Route::put('edit/{id}', 'update')->name('update');
     Route::delete('destroy/{id}', 'destroy')->name('destroy');
     Route::get('export_excel', 'export_excel')->name('export_excel');
+    Route::get('export_excel_view', 'exportExcelView')->name('export_excel_view');
+});
+
+// Major
+Route::controller(MajorController::class)->prefix('major')->name('major.')->middleware('auth')->group(function () {
+    Route::get('', 'index')->name('index');
+    Route::get('create', 'create')->name('create');
+    Route::post('store', 'store')->name('store');
+    Route::get('edit/{id}', 'edit')->name('edit');
+    Route::put('edit/{id}', 'update')->name('update');
+    Route::delete('destroy/{id}', 'destroy')->name('destroy');
+    Route::get('export_excel', 'export_excel')->name('export_excel');
+    Route::get('export_excel_view', 'exportExcelView')->name('export_excel_view');
 });
 
 // Spp
@@ -69,6 +71,7 @@ Route::controller(SppController::class)->prefix('spp')->name('spp.')->middleware
     Route::put('edit/{id}', 'update')->name('update');
     Route::delete('destroy/{id}', 'destroy')->name('destroy');
     Route::get('export_excel', 'export_excel')->name('export_excel');
+    Route::get('export_excel_view', 'exportExcelView')->name('export_excel_view');
 });
 
 // Student
@@ -80,6 +83,7 @@ Route::controller(StudentController::class)->prefix('student')->name('student.')
     Route::put('edit/{id}', 'update')->name('update');
     Route::delete('destroy/{id}', 'destroy')->name('destroy');
     Route::get('export_excel', 'export_excel')->name('export_excel');
+    Route::get('export_excel_view', 'exportExcelView')->name('export_excel_view');
 });
 
 // OfflinePayment

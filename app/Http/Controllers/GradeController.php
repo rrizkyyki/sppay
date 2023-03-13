@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Grade;
 use App\Models\Major;
 use App\Exports\GradeExport;
+use App\Exports\GradeExportView;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 
@@ -16,15 +17,28 @@ class GradeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $grades = Grade::simplePaginate(10);
+        // search
+        if ($request->has('search')) {
+            $grades = Grade::where('grade', 'LIKE', '%' .$request->search. '%')->simplePaginate(5);
+        } else {
+            $grades = Grade::simplePaginate(5);
+        }
+
         return view('grade.index', ['title' => 'Kelas'], compact(['grades']));
     }
 
+    // export excel using model
     public function export_excel()
     {
         return Excel::download(new GradeExport, 'kelas.xlsx');
+    }
+
+    // export excel using view
+    public function exportExcelView()
+    {
+        return Excel::download(new GradeExportView, 'kelas.xlsx');
     }
 
     /**

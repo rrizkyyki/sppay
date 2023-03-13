@@ -17,7 +17,7 @@ class LoginController extends Controller
         Auth::logout();
         Auth::guard('student')->logout();
         $credentials = $request->validate([
-            'email' => 'required|email:dns',
+            'email' => 'required',
             'password' => 'required'
         ]);
 

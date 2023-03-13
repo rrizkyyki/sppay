@@ -9,6 +9,7 @@ use App\Models\Grade;
 use App\Models\Major;
 use App\Models\Spp;
 use App\Exports\StudentExport;
+use App\Exports\StudentExportView;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 
@@ -19,15 +20,33 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $students = Student::simplePaginate(10);
+        // search
+        if ($request->has('search')) {
+            $students = Student::where('name', 'LIKE', '%' .$request->search. '%')
+                                    ->orWhere('nisn', 'LIKE', '%' .$request->search. '%')
+                                    ->orWhere('nis', 'LIKE', '%' .$request->search. '%')
+                                    ->orWhere('address', 'LIKE', '%' .$request->search. '%')
+                                    ->orWhere('phone_number', 'LIKE', '%' .$request->search. '%')
+                                    ->simplePaginate(10);
+        } else {
+            $students = Student::simplePaginate(10);
+        }
+
         return view('student.index', ['title' => 'Siswa'], compact(['students']));
     }
 
+    // export excel using model
     public function export_excel()
     {
-        return Excel::download(new StudentExport, 'siswa.xlsx');
+        return Excel::download(new StudentExport, 'murid.xlsx');
+    }
+
+    // export excel using view
+    public function exportExcelView()
+    {
+        return Excel::download(new StudentExportView, 'murid.xlsx');
     }
 
     /**

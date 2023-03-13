@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Spp;
 use App\Exports\SppExport;
+use App\Exports\SppExportView;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 
@@ -15,15 +16,30 @@ class SppController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $spp = Spp::simplePaginate(10);
+        if ($request->has('search')) {
+            $spp = Spp::where('start_period', 'LIKE', '%' .$request->search. '%')
+                            ->orWhere('end_period', 'LIKE', '%' .$request->search. '%')
+                            ->orWhere('amount', 'LIKE', '%' .$request->search. '%')
+                            ->simplePaginate(10);
+        } else {
+            $spp = Spp::simplePaginate(10);
+        }
+
         return view('spp.index', ['title' => 'Spp'], compact(['spp']));
     }
 
+    // export excel using model
     public function export_excel()
     {
         return Excel::download(new SppExport, 'spp.xlsx');
+    }
+
+    // export excel using view
+    public function exportExcelView()
+    {
+        return Excel::download(new SppExportView, 'spp.xlsx');
     }
 
     /**
