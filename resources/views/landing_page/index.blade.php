@@ -284,7 +284,7 @@
 
             <div class="section-title">
             <h2>Layanan Kami</h2>
-            <p>Layanan kami dapat dipastikan membuat anda puas, jika anda mengalami kendala anda dapat menghubungi kami, customer service kami akan segera melayani anda.</p>
+            {{-- <p>Layanan kami dapat dipastikan membuat anda puas, jika anda mengalami kendala anda dapat menghubungi kami, customer service kami akan segera melayani anda.</p> --}}
             </div>
 
             <div class="row">
@@ -348,7 +348,7 @@
 
             <div class="section-title">
             <h2>Portfolio</h2>
-            <p>Berikut tangkapan layar dari aplikasi SPPAY. Berbagai fitur dikelompokan sesuai dengan hak akses nya masing - masing. Terdapat admin, petugas dan user atau murid. SPPAY sudah responsive sehingga nyaman digunakan di ponsel anda</p>
+            {{-- <p>Berikut tangkapan layar dari aplikasi SPPAY. Berbagai fitur dikelompokan sesuai dengan hak akses nya masing - masing. Terdapat admin, petugas dan user atau murid. SPPAY sudah responsive sehingga nyaman digunakan di ponsel anda</p> --}}
             </div>
 
             <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
@@ -461,7 +461,7 @@
 
             <div class="section-title">
             <h2>Tim Kami</h2>
-            <p>Berkenalan dengan tim kami yang telah membangun aplikasi ini, tim kami mempersembahkan SPPAY dengan bangga kepada anda. kunjungi sosial media mereka, jangan pernah ragu untuk kenalan dan bertanya.</p>
+            {{-- <p>Berkenalan dengan tim kami yang telah membangun aplikasi ini, tim kami mempersembahkan SPPAY dengan bangga kepada anda. kunjungi sosial media mereka, jangan pernah ragu untuk kenalan dan bertanya.</p> --}}
             </div>
 
             <div class="row d-flex justify-content-center">
@@ -562,7 +562,7 @@
 
             <div class="section-title">
             <h2>Paket Dan Harga</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
             </div>
 
             <div class="row">
@@ -685,7 +685,7 @@
 
             <div class="section-title">
             <h2>Kontak Kami</h2>
-            <p>Anda dapat mengunjungi kantor kami atau anda cukup hubungi nomor kami dengan tap informasi nomor atau dengan mengisi email dibawah ini jika anda memiliki pertanyaan atau tertarik dengan produk kami.</p>
+            {{-- <p>Anda dapat mengunjungi kantor kami atau anda cukup hubungi nomor kami dengan tap informasi nomor atau dengan mengisi email dibawah ini jika anda memiliki pertanyaan atau tertarik dengan produk kami.</p> --}}
             </div>
 
             <div class="row">
