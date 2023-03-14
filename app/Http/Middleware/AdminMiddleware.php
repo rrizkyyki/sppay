@@ -17,9 +17,9 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::guard('student')) {
-            return redirect('/home')->with('alert', 'Akses Dilarang!');
-        }
+        // if (Auth::guard('student')) {
+        //     return redirect('/home')->with('alert', 'Akses Dilarang!');
+        // }
 
         if (auth()->user()->role == 'admin') {
             return $next($request);
@@ -27,6 +27,6 @@ class AdminMiddleware
             return redirect('/home')->with('alert', 'Akses Dilarang!');
         }
 
-        return $next($request);
+        // return $next($request);
     }
 }

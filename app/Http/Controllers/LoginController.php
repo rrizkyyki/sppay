@@ -26,7 +26,7 @@ class LoginController extends Controller
         // method 2 students
         if (Auth::guard('student')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/home');
+            return redirect()->intended('/dashboard');
         }
 
         // admin and operator

@@ -13,7 +13,7 @@ class OnlinePaymentController extends Controller
      */
     public function index()
     {
-        //
+        return view('payment.online.index', ['title' => 'Bayar SPP']);
     }
 
     /**

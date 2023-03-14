@@ -36,6 +36,7 @@ Route::controller(LoginController::class)->group(function () {
 // Home
 Route::controller(HomeController::class)->middleware(['auth:web,student'])->group(function () {
     Route::get('/home', 'index')->name('home.index');
+    Route::get('/dashboard', 'dashboard')->name('student.dashboard');
 });
 
 // Grade
@@ -110,5 +111,16 @@ Route::controller(OperatorController::class)->prefix('operator')->name('operator
     Route::put('edit/{id}', 'update')->name('update');
     Route::delete('destroy/{id}', 'destroy')->name('destroy');
     Route::get('export_excel', 'export_excel')->name('export_excel');
+    Route::get('export_excel_view', 'exportExcelView')->name('export_excel_view');
+});
+
+// Online Payments
+Route::controller(OnlinePaymentController::class)->prefix('online-payment')->name('online-payment.')->middleware(['auth:web,student'])->group(function () {
+    Route::get('', 'index')->name('index');
+    Route::get('create', 'create')->name('create');
+    Route::post('store', 'store')->name('store');
+    Route::get('edit/{id}', 'edit')->name('edit');
+    Route::put('edit/{id}', 'update')->name('update');
+    Route::delete('destroy/{id}', 'destroy')->name('destroy');
     Route::get('export_excel_view', 'exportExcelView')->name('export_excel_view');
 });

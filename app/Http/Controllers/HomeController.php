@@ -32,4 +32,9 @@ class HomeController extends Controller
             'users'
         ]));
     }
+
+    public function dashboard()
+    {
+        return view('home.dashboard', ['title' => 'Dashboard']);
+    }
 }
