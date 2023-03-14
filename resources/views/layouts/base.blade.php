@@ -101,7 +101,8 @@
                             <a class="collapse-item" href="">No Access</a>
                         @elseif (Auth::guard('student'))
                             <h6 class="collapse-header">Murid</h6>
-                            <a class="collapse-item" href="{{route('online-payment.index')}}">Bayar SPP</a>
+                            {{-- <a class="collapse-item" href="{{route('online-payment.index')}}">Bayar SPP</a> --}}
+                            <a style="cursor: pointer;" class="collapse-item" onclick="myFunction()">Bayar SPP</a>
                         @endif
                     </div>
                 </div>
@@ -301,6 +302,13 @@
             } else {
                 x.type = "password";
             }
+        }
+    </script>
+
+    {{-- develop alert --}}
+    <script>
+        function myFunction() {
+        alert("MASIH DALAM TAHAP PENGEMBANGAN");
         }
     </script>
 

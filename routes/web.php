@@ -40,7 +40,7 @@ Route::controller(HomeController::class)->middleware(['auth:web,student'])->grou
 });
 
 // Grade
-Route::controller(GradeController::class)->prefix('grade')->name('grade.')->middleware('isAdmin')->group(function () {
+Route::controller(GradeController::class)->prefix('grade')->name('grade.')->middleware(isAdmin::class)->group(function () {
     Route::get('', 'index')->name('index');
     Route::get('create', 'create')->name('create');
     Route::post('store', 'store')->name('store');

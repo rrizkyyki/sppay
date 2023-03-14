@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="card-body">
-            asdasd
+            Student Info - get api from midtrans - DEVELOP
         </div>
     </div>
 @endsection
