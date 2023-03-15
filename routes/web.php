@@ -25,3 +25,13 @@ use App\Http\Controllers\OperatorController;
 // Landing Page
 Route::get('/', [LandingPageController::class, 'index']);
 Route::post('/send-guest-mail', [LandingPageController::class, 'sendGuestMail'])->name('send-guest-mail');
+
+// Login
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'index')->name('login')->middleware('guest');
+    Route::post('/login', 'authenticate');
+    Route::post('/logout', 'logout')->middleware('auth');
+});
+
+// Home
+Route::get('/home', [HomeController::class, 'index'])->name('index')->middleware(['auth:web']);
