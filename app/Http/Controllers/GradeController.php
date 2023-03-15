@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Grade;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\GradeExport;
 
 class GradeController extends Controller
 {
@@ -11,9 +14,16 @@ class GradeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // search
+        if ($request->has('search')) {
+            $grades = Grade::where('grade', 'LIKE', '%' .$request->search. '%')->simplePaginate(5);
+        } else {
+            $grades = Grade::simplePaginate(5);
+        }
+
+        return view('grade.index', ['title' => 'Kelas'], compact(['grades']));
     }
 
     /**
@@ -23,7 +33,7 @@ class GradeController extends Controller
      */
     public function create()
     {
-        //
+        return view('grade.create', ['title' => 'Kelas']);
     }
 
     /**
@@ -34,7 +44,16 @@ class GradeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // add rules
+        $validatedData = $request->validate([
+            'grade' => 'required|unique:grades,grade'
+        ]);
+
+        // store data
+        Grade::create($validatedData);
+
+        // back with success alert
+        return redirect('/grade')->with('success', 'Kelas Berhasil Ditambahkan!');
     }
 
     /**
@@ -56,7 +75,11 @@ class GradeController extends Controller
      */
     public function edit($id)
     {
-        //
+        // search id
+        $grade = Grade::find($id);
+
+        // return view with data
+        return view('grade.edit', ['title' => 'Edit Kelas'], compact(['grade']));
     }
 
     /**
@@ -68,7 +91,19 @@ class GradeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // search id
+        $grade = Grade::find($id);
+
+        // add rules
+        $validatedData = $request->validate([
+            'grade' => 'required',
+        ]);
+
+        // update data after validating
+        $grade->update($validatedData);
+
+        // return with success alert
+        return redirect('/grade')->with('success', 'Kelas Berhasil Diubah!');
     }
 
     /**
@@ -79,6 +114,22 @@ class GradeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // search id
+        $grade = Grade::find($id);
+
+        // run the delete function
+        $grade->delete();
+
+        // back with success alert
+        return redirect('/grade')->with('success', 'Kelas Berhasil Dihapus!');
+    }
+
+    /**
+     * exports excel
+     * exports pdf
+     */
+    public function exportExcel()
+    {
+        return Excel::download(new GradeExport, 'Kelas.xlsx');
     }
 }

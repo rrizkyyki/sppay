@@ -87,9 +87,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         @if (Auth::check() && Auth::user()->role == 'admin')
                             <h6 class="collapse-header">Admin</h6>
-                            {{-- <a class="collapse-item" href="{{route('grade.index')}}">Kelas</a>
-                            <a class="collapse-item" href="{{route('major.index')}}">Kompetensi Keahlian</a>
-                            <a class="collapse-item" href="{{route('spp.index')}}">Spp</a>
+                            <a class="collapse-item" href="{{route('grade.index')}}">Kelas</a>
+                            <a class="collapse-item" href="{{route('skill.index')}}">Kompetensi Keahlian</a>
+                            {{-- <a class="collapse-item" href="{{route('spp.index')}}">Spp</a>
                             <a class="collapse-item" href="{{route('student.index')}}">Murid</a>
                             <a class="collapse-item" href="{{route('offlinePayment.index')}}">Pembayaran</a> --}}
                         @elseif (Auth::check() && Auth::user()->role == 'operator')

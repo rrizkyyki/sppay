@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Skill;
+use App\Exports\SkillExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SkillController extends Controller
 {
@@ -11,9 +14,16 @@ class SkillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // search
+        if ($request->has('search')) {
+            $skills = Skill::where('skill', 'LIKE', '%' .$request->search. '%')->simplePaginate(5);
+        } else {
+            $skills = Skill::simplePaginate(5);
+        }
+
+        return view('skill.index', ['title' => 'Jurusan'], compact(['skills']));
     }
 
     /**
@@ -23,7 +33,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+        return view('skill.create', ['title' => 'Tambah Jurusan']);
     }
 
     /**
@@ -34,7 +44,16 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // add rules
+        $validatedData = $request->validate([
+            'skill' => 'required|min:2|unique:skills,skill'
+        ]);
+
+        // store data
+        Skill::create($validatedData);
+
+        // back with success alert
+        return redirect('/skill')->with('success', 'Jurusan Berhasil Ditambahkan!');
     }
 
     /**
@@ -56,7 +75,11 @@ class SkillController extends Controller
      */
     public function edit($id)
     {
-        //
+        // search id
+        $skill = Skill::find($id);
+
+        // return view with data
+        return view('skill.edit', ['title' => 'Edit Jurusan'], compact(['skill']));
     }
 
     /**
@@ -68,7 +91,19 @@ class SkillController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // search id
+        $skill = Skill::find($id);
+
+        // add rules
+        $validatedData = $request->validate([
+            'skill' => 'required|min:2|unique:skills,skill'
+        ]);
+
+        // update data after validating
+        $skill->update($validatedData);
+
+        // return with alert
+        return redirect('/skill')->with('success', 'Jurusan Berhasil Diubah!');
     }
 
     /**
@@ -79,6 +114,22 @@ class SkillController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // search id
+        $skill = Skill::find($id);
+
+        // run the delete function
+        $skill->delete();
+
+        // back with success alert
+        return redirect('/skill')->with('success', 'Jurusan Berhasil Dihapus!');
+    }
+
+    /**
+     * export excel
+     * export pdf
+     */
+    public function exportExcel()
+    {
+        return Excel::download(new SkillExport, 'Jurusan.xlsx');
     }
 }

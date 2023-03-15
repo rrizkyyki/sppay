@@ -35,3 +35,25 @@ Route::controller(LoginController::class)->group(function () {
 
 // Home
 Route::get('/home', [HomeController::class, 'index'])->name('index')->middleware(['auth:web']);
+
+// Grade
+Route::controller(GradeController::class)->prefix('grade')->name('grade.')->middleware(['isAdmin'])->group(function () {
+    Route::get('', 'index')->name('index');
+    Route::get('create', 'create')->name('create');
+    Route::post('store', 'store')->name('store');
+    Route::get('edit/{id}', 'edit')->name('edit');
+    Route::put('edit/{id}', 'update')->name('update');
+    Route::delete('destroy/{id}', 'destroy')->name('destroy');
+    Route::get('export-excel', 'exportExcel')->name('export-excel');
+});
+
+// Skill
+Route::controller(SkillController::class)->prefix('skill')->name('skill.')->middleware('isAdmin')->group(function () {
+    Route::get('', 'index')->name('index');
+    Route::get('create', 'create')->name('create');
+    Route::post('store', 'store')->name('store');
+    Route::get('edit/{id}', 'edit')->name('edit');
+    Route::put('edit/{id}', 'update')->name('update');
+    Route::delete('destroy/{id}', 'destroy')->name('destroy');
+    Route::get('export-excel', 'exportExcel')->name('export-excel');
+});
