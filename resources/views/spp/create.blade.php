@@ -12,18 +12,9 @@
         <form action="{{route('spp.store')}}" method="post">
             @csrf
             <div class="form-group">
-                <label for="start_period" class="form-label">Periode Bermulai</label>
-                <input type="date" name="start_period" class="form-control @error('start_period') is-invalid @enderror" autofocus required value="{{old('start_period')}}">
-                @error('start_period')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="end_period" class="form-label">Periode Berakhir</label>
-                <input type="date" name="end_period" class="form-control @error('end_period') is-invalid @enderror" autofocus required value="{{old('end_period')}}">
-                @error('end_period')
+                <label for="year" class="form-label">Tahun</label>
+                <input type="number" name="year" class="form-control @error('year') is-invalid @enderror" autofocus required value="{{old('year')}}">
+                @error('year')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>

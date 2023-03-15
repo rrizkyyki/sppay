@@ -47,7 +47,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Total : {{$spp->count()}}</h6>
         </div>
         <div class="right-navigation">
-            <a href="{{route('spp.export_excel_view')}}" class="btn btn-sm btn-success font-weight-bold my-1 w-100"><i class="fa fa-download" aria-hidden="true"></i> Excel</a>
+            <a href="{{route('spp.export-excel')}}" class="btn btn-sm btn-success font-weight-bold my-1 w-100"><i class="fa fa-download" aria-hidden="true"></i> Excel</a>
             <a href="{{route('spp.create')}}" class="m-0 btn btn-sm btn-primary font-weight-bold w-100"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</a>
         </div>
     </div>
@@ -59,8 +59,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nominal</th>
-                        <th>Periode Awal</th>
-                        <th>Periode Akhir</th>
+                        <th>Tahun</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -69,8 +68,7 @@
                         <tr>
                             <td>{{$spp->firstItem() + $key}}</td>
                             <td>Rp. {{$get->amount}}</td>
-                            <td>{{$get->start_period}}</td>
-                            <td>{{$get->end_period}}</td>
+                            <td>{{$get->year}}</td>
                             <td>
                                 <a href="spp/edit/{{$get->id}}" class="btn btn-warning">Ubah</a>
                                 <button data-toggle="modal" data-target="#deleteModal{{$get->id}}" class="btn btn-danger my-1">Hapus</button>
@@ -88,7 +86,7 @@
                                 </button>
                                 </div>
                                 <div class="modal-body">
-                                    Apakah anda yakin ingin menghapus spp nominal {{$get->amount}} ?
+                                    Apakah anda yakin ingin menghapus spp nominal {{$get->amount}} tahun {{$get->year}} ?
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

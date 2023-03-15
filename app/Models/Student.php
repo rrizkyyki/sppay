@@ -24,16 +24,16 @@ class Student extends Model
 
     public function grade()
     {
-        return $this->hasOne(Grade::class, 'grade_id');
+        return $this->belongsTo(Grade::class, 'grade_id');
     }
 
     public function skill()
     {
-        return $this->hasOne(Skill::class, 'skill_id');
+        return $this->belongsTo(Skill::class, 'skill_id');
     }
 
     public function spp()
     {
-        return $this->hasOne(Spp::class, 'spp_id');
+        return $this->belongsTo(Spp::class, 'spp_id');
     }
 }

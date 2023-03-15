@@ -48,7 +48,29 @@ Route::controller(GradeController::class)->prefix('grade')->name('grade.')->midd
 });
 
 // Skill
-Route::controller(SkillController::class)->prefix('skill')->name('skill.')->middleware('isAdmin')->group(function () {
+Route::controller(SkillController::class)->prefix('skill')->name('skill.')->middleware(['isAdmin'])->group(function () {
+    Route::get('', 'index')->name('index');
+    Route::get('create', 'create')->name('create');
+    Route::post('store', 'store')->name('store');
+    Route::get('edit/{id}', 'edit')->name('edit');
+    Route::put('edit/{id}', 'update')->name('update');
+    Route::delete('destroy/{id}', 'destroy')->name('destroy');
+    Route::get('export-excel', 'exportExcel')->name('export-excel');
+});
+
+// Spp
+Route::controller(SppController::class)->prefix('spp')->name('spp.')->middleware(['isAdmin'])->group(function () {
+    Route::get('', 'index')->name('index');
+    Route::get('create', 'create')->name('create');
+    Route::post('store', 'store')->name('store');
+    Route::get('edit/{id}', 'edit')->name('edit');
+    Route::put('edit/{id}', 'update')->name('update');
+    Route::delete('destroy/{id}', 'destroy')->name('destroy');
+    Route::get('export-excel', 'exportExcel')->name('export-excel');
+});
+
+// Student
+Route::controller(StudentController::class)->prefix('student')->name('student.')->middleware(['auth'])->group(function () {
     Route::get('', 'index')->name('index');
     Route::get('create', 'create')->name('create');
     Route::post('store', 'store')->name('store');

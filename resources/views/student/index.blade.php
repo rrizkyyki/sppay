@@ -47,7 +47,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Total : {{$students->count()}}</h6>
         </div>
         <div class="right-navigation">
-            <a href="{{route('student.export_excel_view')}}" class="btn btn-sm btn-success font-weight-bold my-1 w-100"><i class="fa fa-download" aria-hidden="true"></i> Excel</a>
+            <a href="{{route('student.export-excel')}}" class="btn btn-sm btn-success font-weight-bold my-1 w-100"><i class="fa fa-download" aria-hidden="true"></i> Excel</a>
             <a href="{{route('student.create')}}" class="m-0 btn btn-sm btn-primary font-weight-bold w-100"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</a>
         </div>
     </div>
@@ -58,14 +58,15 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Email</th>
                         <th>NISN</th>
                         <th>NIS</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Jenis Kelamin</th>
                         <th>Kelas</th>
                         <th>Kompetensi Keahlian</th>
-                        <th>Alamat</th>
                         <th>Telepon</th>
+                        <th>Alamat</th>
                         <th>Spp</th>
                         <th>Profil</th>
                         <th>Aksi</th>
@@ -75,22 +76,31 @@
                     @foreach ($students as $key => $get)
                         <tr>
                             <td>{{$students->firstItem() + $key}}</td>
-                            <td>{{$get->name}}</td>
-                            <td>{{$get->email}}</td>
                             <td>{{$get->nisn}}</td>
                             <td>{{$get->nis}}</td>
+                            <td>{{$get->name}}</td>
+                            <td>{{$get->email}}</td>
+                            @if ($get->gender == 'male')
+                                <td>Laki-laki</td>
+                            @else
+                                <td>Perempuan</td>
+                            @endif
                             <td>{{$get->grade->grade}}</td>
-                            <td>{{$get->major->major}}</td>
-                            <td>{{$get->address}}</td>
+                            <td>{{$get->skill->skill}}</td>
                             <td>{{$get->phone_number}}</td>
+                            <td>{{$get->address}}</td>
                             <td>Rp. {{$get->spp->amount}}</td>
                             @if ($get->image)
                                 <td>
                                     <img src="{{asset('storage/'.$get->image)}}" alt="{{$get->image}}" style="width: 100px;">
                                 </td>
-                            @else
+                            @elseif ($get->gender == 'male')
                                 <td>
                                     <img src="{{asset('sbadmin2/img/undraw_profile.svg')}}" alt="default.svg" style="width: 100px;">
+                                </td>
+                            @else
+                                <td>
+                                    <img src="{{asset('sbadmin2/img/undraw_profile_1.svg')}}" alt="default.svg" style="width: 100px;">
                                 </td>
                             @endif
                             <td>

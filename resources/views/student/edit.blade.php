@@ -14,26 +14,8 @@
             @method('put')
             <input type="hidden" name="id" value="{{$student->id}}">
             <div class="form-group">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" autofocus required value="{{$student->name}}">
-                @error('name')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" autofocus required value="{{$student->email}}">
-                @error('email')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
-                @enderror
-            </div>
-            <div class="form-group">
                 <label for="nisn" class="form-label">NISN</label>
-                <input type="text" name="nisn" class="form-control @error('nisn') is-invalid @enderror" autofocus required value="{{$student->nisn}}">
+                <input type="text" name="nisn" class="form-control @error('nisn') is-invalid @enderror" required value="{{$student->nisn}}">
                 @error('nisn')
                 <div class="invalid-feedback">
                     {{$message}}
@@ -42,8 +24,45 @@
             </div>
             <div class="form-group">
                 <label for="nis" class="form-label">NIS</label>
-                <input type="text" name="nis" class="form-control @error('nis') is-invalid @enderror" autofocus required value="{{$student->nis}}">
+                <input type="text" name="nis" class="form-control @error('nis') is-invalid @enderror" required value="{{$student->nis}}">
                 @error('nis')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="name" class="form-label">Nama</label>
+                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" required value="{{$student->name}}">
+                @error('name')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" required value="{{$student->email}}">
+                @error('email')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="gender" class="form-label">Jenis Kelamin</label>
+                <select class="form-control @error('gender') is-invalid @enderror" name="gender">
+                    @if($student->gender == 'male')
+                        <option value="male">Laki-laki</option>
+                        <option value="female">Perempuan</option>
+                    @else
+                        <option value="female">Perempuan</option>
+                        <option value="male">Laki-laki</option>
+                    @endif
+                    {{-- use for debugging --}}
+                    {{-- <option value="{{$user->gender}}" selected>{{$user->gender}}</option> --}}
+                </select>
+                @error('gender')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
@@ -68,36 +87,36 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="major_id" class="form-label">Kompetensi Keahlian</label>
-                <select class="form-control @error('major_id') is-invalid @enderror" name="major_id">
+                <label for="skill_id" class="form-label">Kompetensi Keahlian</label>
+                <select class="form-control @error('skill_id') is-invalid @enderror" name="skill_id">
                     <option value="">Pilih Kelas</option>
-                    @foreach ($majors as $get)
-                        @if (old('id', $get->id) == $student->major_id)
-                            <option value="{{$get->id}}" selected>{{$get->major}}</option>
+                    @foreach ($skill as $get)
+                        @if (old('id', $get->id) == $student->skill_id)
+                            <option value="{{$get->id}}" selected>{{$get->skill}}</option>
                         @else
-                            <option value="{{$get->id}}">{{$get->major}}</option>
+                            <option value="{{$get->id}}">{{$get->skill}}</option>
                         @endif
                     @endforeach
                 </select>
-                @error('major_id')
+                @error('skill_id')
                     <div class="invalid-feedback">
                         {{$message}}
                     </div>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="address" class="form-label">Alamat</label>
-                <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" autofocus required value="{{$student->address}}">
-                @error('address')
+                <label for="phone_number" class="form-label">Telepon</label>
+                <input type="text" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" required value="{{$student->phone_number}}">
+                @error('phone_number')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="phone_number" class="form-label">Telepon</label>
-                <input type="text" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" autofocus required value="{{$student->phone_number}}">
-                @error('phone_number')
+                <label for="address" class="form-label">Alamat</label>
+                <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" required value="{{$student->address}}">
+                @error('address')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
@@ -141,7 +160,7 @@
             @if (auth()->user()->role == 'admin')
                 <div class="form-group">
                     {{-- <label for="password" class="form-label">Password</label> --}}
-                    <input type="hidden" name="password" id="inputPassword" class="form-control @error('password') is-invalid @enderror" autofocus required value="{{$student->password}}">
+                    <input type="hidden" name="password" id="inputPassword" class="form-control @error('password') is-invalid @enderror" required value="{{$student->password}}">
                     @error('password')
                     <div class="invalid-feedback">
                         {{$message}}

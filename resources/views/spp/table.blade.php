@@ -2,8 +2,7 @@
     <thead>
         <tr>
             <th>No</th>
-            <th>Berawal</th>
-            <th>Berakhir</th>
+            <th>Tahun</th>
             <th>Jumlah</th>
         </tr>
     </thead>
@@ -11,8 +10,7 @@
         @foreach ($spp as $key => $get)
             <tr>
                 <td>{{$key + 1}}</td>
-                <td>{{$get->start_period}}</td>
-                <td>{{$get->end_period}}</td>
+                <td>{{$get->year}}</td>
                 <td>Rp. {{$get->amount}}</td>
             </tr>
         @endforeach

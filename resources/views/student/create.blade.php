@@ -12,24 +12,6 @@
         <form action="{{route('student.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" autofocus required value="{{old('name')}}">
-                @error('name')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" autofocus required value="{{old('email')}}">
-                @error('email')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
-                @enderror
-            </div>
-            <div class="form-group">
                 <label for="nisn" class="form-label">NISN</label>
                 <input type="text" name="nisn" class="form-control @error('nisn') is-invalid @enderror" autofocus required value="{{old('nisn')}}">
                 @error('nisn')
@@ -48,6 +30,37 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="name" class="form-label">Nama</label>
+                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" autofocus required value="{{old('name')}}">
+                @error('name')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" autofocus required value="{{old('email')}}">
+                @error('email')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="gender" class="form-label">Jenis Kelamin</label>
+                <select class="form-control @error('gender') is-invalid @enderror" name="gender">
+                    <option value="">Pilih Jenis Kelamin</option>
+                    <option value="male">Laki-laki</option>
+                    <option value="female">Perempuan</option>
+                </select>
+                @error('gender')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label for="grade_id" class="form-label">Kelas</label>
                 <select class="form-control @error('grade_id') is-invalid @enderror" name="grade_id">
                     <option value="">Pilih Kelas</option>
@@ -62,26 +75,17 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="major_id" class="form-label">Kompetensi Keahlian</label>
-                <select class="form-control @error('major_id') is-invalid @enderror" name="major_id">
+                <label for="skill_id" class="form-label">Kompetensi Keahlian</label>
+                <select class="form-control @error('skill_id') is-invalid @enderror" name="skill_id">
                     <option value="">Pilih Kompetensi Keahlian</option>
-                    @foreach ($majors as $get)
-                        <option value="{{$get->id}}">{{$get->major}}</option>
+                    @foreach ($skills as $get)
+                        <option value="{{$get->id}}">{{$get->skill}}</option>
                     @endforeach
                 </select>
-                @error('major_id')
+                @error('skill_id')
                     <div class="invalid-feedback">
                         {{$message}}
                     </div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="address" class="form-label">Alamat</label>
-                <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" autofocus required value="{{old('address')}}">
-                @error('address')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
                 @enderror
             </div>
             <div class="form-group">
@@ -94,11 +98,20 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="address" class="form-label">Alamat</label>
+                <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" autofocus required value="{{old('address')}}">
+                @error('address')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label for="spp_id" class="form-label">Spp</label>
                 <select class="form-control @error('spp_id') is-invalid @enderror" name="spp_id">
                     <option value="">Pilih Spp</option>
                     @foreach ($spp as $get)
-                        <option value="{{$get->id}}">Rp. {{$get->amount}} Berakhir {{$get->end_period}}</option>
+                        <option value="{{$get->id}}">Rp. {{$get->amount}} Tahun {{$get->year}}</option>
                     @endforeach
                 </select>
                 @error('spp_id')

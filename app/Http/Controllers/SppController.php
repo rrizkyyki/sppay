@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Spp;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SppExport;
 
 class SppController extends Controller
 {
@@ -11,9 +14,18 @@ class SppController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->has('search')) {
+            $spp = Spp::where('year', 'LIKE', '%' .$request->search. '%')
+                            ->orWhere('amount', 'LIKE', '%' .$request->search. '%')
+                            ->orderBy('id', 'DESC')
+                            ->simplePaginate(5);
+        } else {
+            $spp = Spp::orderBy('id', 'DESC')->simplePaginate(5);
+        }
+
+        return view('spp.index', ['title' => 'Spp'], compact(['spp']));
     }
 
     /**
@@ -23,7 +35,7 @@ class SppController extends Controller
      */
     public function create()
     {
-        //
+        return view('spp.create', ['title' => 'Tambah Spp']);
     }
 
     /**
@@ -34,7 +46,17 @@ class SppController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // add rules
+        $validatedData = $request->validate([
+            'year' => 'required',
+            'amount' => 'required',
+        ]);
+
+        // store data
+        Spp::create($validatedData);
+
+        // return with alert
+        return redirect('/spp')->with('success', 'Spp Berhasil Ditambahkan!');
     }
 
     /**
@@ -56,7 +78,11 @@ class SppController extends Controller
      */
     public function edit($id)
     {
-        //
+        // search id
+        $spp = Spp::find($id);
+
+        // return view with data
+        return view('spp.edit', ['title' => 'Edit Spp'], compact(['spp']));
     }
 
     /**
@@ -68,7 +94,20 @@ class SppController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // search id
+        $spp = Spp::find($id);
+
+        // add rules
+        $validatedData = $request->validate([
+            'year' => 'required',
+            'amount' => 'required',
+        ]);
+
+        // update data after validating
+        $spp->update($validatedData);
+
+        // return with alert
+        return redirect('/spp')->with('success', 'Spp Berhasil Diubah!');
     }
 
     /**
@@ -79,6 +118,22 @@ class SppController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // search id
+        $spp = Spp::find($id);
+
+        // run the delete function
+        $spp->delete();
+
+        // back with success alert
+        return redirect('/spp')->with('success', 'Spp Berhasil Dihapus!');
+    }
+
+    /**
+     * export excel
+     * export pdf
+     */
+    public function exportExcel()
+    {
+        return Excel::download(new SppExport, 'Spp.xlsx');
     }
 }
