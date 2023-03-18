@@ -6,7 +6,7 @@
             <th>NIS</th>
             <th>Nama</th>
             <th>Email</th>
-            <th>Gender</th>
+            <th>Jenis Kelamin</th>
             <th>Kelas</th>
             <th>Kompetensi Keahlian</th>
             <th>Telepon</th>
@@ -22,7 +22,11 @@
                 <td>{{$get->nis}}</td>
                 <td>{{$get->name}}</td>
                 <td>{{$get->email}}</td>
-                <td>{{$get->gender}}</td>
+                @if ($get->gender == 'male')
+                    <td>Laki-laki</td>
+                @else
+                    <td>Perempuan</td>
+                @endif
                 <td>{{$get->grade->grade}}</td>
                 <td>{{$get->skill->skill}}</td>
                 <td>{{$get->phone_number}}</td>
