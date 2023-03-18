@@ -16,6 +16,8 @@ class SppController extends Controller
      */
     public function index(Request $request)
     {
+        $countSpp = Spp::count();
+
         if ($request->has('search')) {
             $spp = Spp::where('year', 'LIKE', '%' .$request->search. '%')
                             ->orWhere('amount', 'LIKE', '%' .$request->search. '%')
@@ -25,7 +27,7 @@ class SppController extends Controller
             $spp = Spp::orderBy('id', 'DESC')->simplePaginate(5);
         }
 
-        return view('spp.index', ['title' => 'Spp'], compact(['spp']));
+        return view('spp.index', ['title' => 'Spp'], compact(['spp', 'countSpp']));
     }
 
     /**
@@ -48,7 +50,7 @@ class SppController extends Controller
     {
         // add rules
         $validatedData = $request->validate([
-            'year' => 'required',
+            'year' => 'required|unique:spp,year',
             'amount' => 'required',
         ]);
 

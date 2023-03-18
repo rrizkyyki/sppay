@@ -16,6 +16,8 @@ class GradeController extends Controller
      */
     public function index(Request $request)
     {
+        $countGrades = Grade::count();
+
         // search
         if ($request->has('search')) {
             $grades = Grade::where('grade', 'LIKE', '%' .$request->search. '%')->simplePaginate(5);
@@ -23,7 +25,7 @@ class GradeController extends Controller
             $grades = Grade::simplePaginate(5);
         }
 
-        return view('grade.index', ['title' => 'Kelas'], compact(['grades']));
+        return view('grade.index', ['title' => 'Kelas'], compact(['grades', 'countGrades']));
     }
 
     /**

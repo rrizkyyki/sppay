@@ -157,23 +157,8 @@
                 @enderror
                 <small>Dapat dibiarkan kosong</small>
             </div>
-            @if (auth()->user()->role == 'admin')
-                <div class="form-group">
-                    {{-- <label for="password" class="form-label">Password</label> --}}
-                    <input type="hidden" name="password" id="inputPassword" class="form-control @error('password') is-invalid @enderror" required value="{{$student->password}}">
-                    @error('password')
-                    <div class="invalid-feedback">
-                        {{$message}}
-                    </div>
-                    @enderror
-                </div>
-                {{-- <div class="form-group">
-                    <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck" onclick="seePassword()">
-                        <label class="custom-control-label" for="customCheck">Lihat Kata Sandi</label>
-                    </div>
-                </div> --}}
-            @endif
+                <input type="hidden" name="password" id="inputPassword" class="form-control @error('password') is-invalid @enderror" required value="{{$student->password}}">
+                @error('password')
             <button type="submit" class="btn btn-warning w-100 mt-2">Edit</button>
         </form>
     </div>

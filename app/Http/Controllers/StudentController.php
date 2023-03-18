@@ -20,6 +20,8 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
+        $countStudents = Student::count();
+
         // search
         if ($request->has('search')) {
             $students = Student::where('name', 'LIKE', '%' .$request->search. '%')
@@ -34,7 +36,7 @@ class StudentController extends Controller
             $students = Student::simplePaginate(5);
         }
 
-        return view('student.index', ['title' => 'Siswa'], compact(['students']));
+        return view('student.index', ['title' => 'Siswa'], compact(['students', 'countStudents']));
     }
 
     /**

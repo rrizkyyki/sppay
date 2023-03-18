@@ -16,6 +16,8 @@ class SkillController extends Controller
      */
     public function index(Request $request)
     {
+        $countSkills = Skill::count();
+        
         // search
         if ($request->has('search')) {
             $skills = Skill::where('skill', 'LIKE', '%' .$request->search. '%')->simplePaginate(5);
@@ -23,7 +25,7 @@ class SkillController extends Controller
             $skills = Skill::simplePaginate(5);
         }
 
-        return view('skill.index', ['title' => 'Jurusan'], compact(['skills']));
+        return view('skill.index', ['title' => 'Jurusan'], compact(['skills', 'countSkills']));
     }
 
     /**

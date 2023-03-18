@@ -44,7 +44,7 @@
     <div class="card-header py-3 justify-content-between d-flex">
         <div class="left-navigation">
             <h6 class="m-0 font-weight-bold text-primary mb-2">Data Spp</h6>
-            <h6 class="m-0 font-weight-bold text-primary">Total : {{$spp->count()}}</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Total : {{$countSpp}}</h6>
         </div>
         <div class="right-navigation">
             <a href="{{route('spp.export-excel')}}" class="btn btn-sm btn-success font-weight-bold my-1 w-100"><i class="fa fa-download" aria-hidden="true"></i> Excel</a>

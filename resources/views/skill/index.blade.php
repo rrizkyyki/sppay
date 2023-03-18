@@ -44,7 +44,7 @@
     <div class="card-header py-3 justify-content-between d-flex">
         <div class="left-navigation">
             <h6 class="m-0 font-weight-bold text-primary mb-2">Data Kompetensi Keahlian</h6>
-            <h6 class="m-0 font-weight-bold text-primary">Total : {{$skills->count()}}</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Total : {{$countSkills}}</h6>
         </div>
         <div class="right-navigation">
             <a href="{{route('skill.export-excel')}}" class="btn btn-sm btn-success font-weight-bold my-1 w-100"><i class="fa fa-download" aria-hidden="true"></i> Excel</a>
